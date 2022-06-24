@@ -111,7 +111,7 @@ jar {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        core(MavenPublication) {
             groupId = 'com.lumaserv'
             artifactId = 'jobrunr'
             version = project.version
@@ -167,5 +167,5 @@ publishing {
 
 signing {
     useInMemoryPgpKeys(System.getenv('GPG_PRIVATE_KEY'), System.getenv('GPG_PASSPHRASE'))
-    sign publishing.publications.mavenJava
+    sign publishing.publications.core
 }

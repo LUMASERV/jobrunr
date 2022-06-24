@@ -42,7 +42,7 @@ dependencies {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'org.jobrunr'
+            groupId = 'com.lumaserv'
             artifactId = 'jobrunr-micronaut-feature'
             version = project.version
             from components.java

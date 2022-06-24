@@ -51,7 +51,7 @@ java {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'org.jobrunr'
+            groupId = 'com.lumaserv'
             artifactId = 'quarkus-jobrunr'
             version = project.version
             from components.java

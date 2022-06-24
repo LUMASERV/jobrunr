@@ -38,7 +38,7 @@ jar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'org.jobrunr'
+            groupId = 'com.lumaserv'
             artifactId = 'jobrunr-spring-boot-native'
             version = project.version
             from components.java
