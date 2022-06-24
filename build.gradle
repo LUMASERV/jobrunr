@@ -5,9 +5,11 @@ plugins {
     id 'signing'
 }
 
+String VERSION = System.getenv('BUILD_VERSION')?.replace("v", "") ?: "v1.0.0-SNAPSHOT".replace("v", "")
+
 subprojects {
     group = 'com.lumaserv'
-    version = System.getenv('BUILD_VERSION')?.replace("v", "") ?: "v1.0.0-SNAPSHOT".replace("v", "")
+    version = VERSION
 }
 
 nexusPublishing {
@@ -19,6 +21,9 @@ nexusPublishing {
             stagingProfileId = "6785d1237ee803"
             nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
             snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+            useStaging.set(provider {
+                VERSION.endsWith("-SNAPSHOT")
+            })
         }
     }
 }
