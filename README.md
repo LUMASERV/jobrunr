@@ -2,28 +2,30 @@
 This is just a fork of the popular JobRunr library,adding smaller features and bugfixes. See the original [GitHub Page](https://github.com/jobrunr/jobrunr) and [website](https://www.jobrunr.io) for more information on how to use the library and consider supporting the original project if you like it.
 
 ## Changes added by this fork
-Nothing yet
+- Decreased minimum configurable fetch interval in seconds from 5 to 1 (see https://github.com/jobrunr/jobrunr/issues/366)
+- Added backgroundJobServer to JobRunrConfigurationResult (see https://github.com/jobrunr/jobrunr/issues/497)
+- Added an option for auto restart on crash to BackgroundJobServerConfiguration (see https://github.com/jobrunr/jobrunr/issues/498)
 
 Installation
 ------------
  
- #### Using Maven?
+#### Using Maven?
  
- JobRunr is available in Maven Central - all you need to do is add the following dependency:
+JobRunr is available in Maven Central - all you need to do is add the following dependency:
  
  ```xml
 <dependency>
-    <groupId>org.jobrunr</groupId>
+    <groupId>com.lumaserv</groupId>
     <artifactId>jobrunr</artifactId>
-    <version>5.1.0</version>
+    <version>5.1.4-R0</version>
 </dependency>
 ```
  
- #### Using Gradle?
+#### Using Gradle?
  
 Just add the dependency to JobRunr:
  ```groovy
-implementation 'org.jobrunr:jobrunr:5.1.0'
+implementation 'com.lumaserv:jobrunr:5.1.4-R0'
 ```
 
 ### How to build?
@@ -33,6 +35,6 @@ implementation 'org.jobrunr:jobrunr:5.1.0'
 * `npm i`
 * `npm run build`
 * `cd -`
-* `./gradlew publishToMavenLocal`
+* `BUILD_VERSION=5.1.4-R0-SNAPSHOT ./gradlew publishToMavenLocal`
 
-Then, in your own project you can depend on `org.jobrunr:jobrunr:1.0.0-SNAPSHOT`.
+Then, in your own project you can depend on `com.lumaserv:jobrunr:5.1.4-R0-SNAPSHOT`.

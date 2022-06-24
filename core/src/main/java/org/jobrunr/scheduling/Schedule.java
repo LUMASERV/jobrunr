@@ -1,3 +1,9 @@
+/*
+Edited on 24.06.2022 by JanHolger <jan@bebendorf.eu>
+Changes:
+- Decreased SMALLEST_SCHEDULE_IN_SECONDS from 5 seconds to 1
+*/
+
 package org.jobrunr.scheduling;
 
 import org.jobrunr.utils.annotations.VisibleFor;
@@ -10,7 +16,7 @@ import static java.time.Instant.now;
 
 public abstract class Schedule implements Comparable<Schedule> {
 
-    public static final int SMALLEST_SCHEDULE_IN_SECONDS = 5;
+    public static final int SMALLEST_SCHEDULE_IN_SECONDS = 1;
 
 
     /**

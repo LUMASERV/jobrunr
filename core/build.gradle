@@ -112,23 +112,19 @@ jar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'org.jobrunr'
+            groupId = 'com.lumaserv'
             artifactId = 'jobrunr'
             version = project.version
             from components.java
 
             pom {
                 name = 'JobRunr'
-                description = 'An easy way to perform background processing on the JVM. Backed by persistent storage. Open and free for commercial use.'
-                url = 'https://github.com/jobrunr/jobrunr'
+                description = 'A fork of org.jobrunr.jobrunr that adds smaller features and bugfixes'
+                url = 'https://github.com/LUMASERV/jobrunr'
                 licenses {
                     license {
                         name = 'GNU Lesser General Public License v3.0 or later'
                         url = 'https://github.com/jobrunr/jobrunr/blob/master/License.md#lgpl-v3-license'
-                    }
-                    license {
-                        name = 'Commercial License'
-                        url = 'https://github.com/jobrunr/jobrunr/blob/master/License.md#commercial-license'
                     }
                 }
                 developers {
@@ -137,11 +133,16 @@ publishing {
                         name = 'Ronald Dehuysser'
                         email = 'ronald.dehuysser@gmail.com'
                     }
+                    developer {
+                        id = 'lumaserv'
+                        name = 'LUMASERV GmbH'
+                        email = 'info@lumaserv.com'
+                    }
                 }
                 scm {
-                    connection = 'scm:git:https://github.com/jobrunr/jobrunr.git'
-                    developerConnection = 'scm:git@github.com:jobrunr/jobrunr.git'
-                    url = 'https://github.com/jobrunr/jobrunr.git'
+                    connection = 'scm:git:https://github.com/LUMASERV/jobrunr.git'
+                    developerConnection = 'scm:git@github.com:LUMASERV/jobrunr.git'
+                    url = 'https://github.com/LUMASERV/jobrunr.git'
                 }
 
                 versionMapping {
@@ -165,9 +166,6 @@ publishing {
 }
 
 signing {
-    String base64Key = System.getenv('SIGNING_KEY')
-    if (base64Key) {
-        useInMemoryPgpKeys(new String(Base64.decoder.decode(base64Key)), System.getenv('SIGNING_PASSWORD'))
-        sign publishing.publications.mavenJava
-    }
+    useInMemoryPgpKeys(System.getenv('GPG_PRIVATE_KEY'), System.getenv('GPG_PASSPHRASE'))
+    sign publishing.publications.mavenJava
 }

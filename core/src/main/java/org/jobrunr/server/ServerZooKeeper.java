@@ -1,3 +1,9 @@
+/*
+Edited on 24.06.2022 by JanHolger <jan@bebendorf.eu>
+Changes:
+- Added auto restart on crash
+*/
+
 package org.jobrunr.server;
 
 import org.jobrunr.server.dashboard.CpuAllocationIrregularityNotification;
@@ -131,6 +137,10 @@ public class ServerZooKeeper implements Runnable {
     }
 
     private void stopServer() {
+        if(backgroundJobServer.getConfiguration().autoRestartOnCrash) { // Reset server instead if autoRestart is enabled
+            resetServer();
+            return;
+        }
         backgroundJobServer.stop();
     }
 

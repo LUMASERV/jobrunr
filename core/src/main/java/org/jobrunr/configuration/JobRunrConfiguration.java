@@ -1,3 +1,9 @@
+/*
+Edited on 24.06.2022 by JanHolger <jan@bebendorf.eu>
+Changes:
+- Added backgroundJobServer to JobRunrConfigurationResult
+*/
+
 package org.jobrunr.configuration;
 
 import org.jobrunr.dashboard.JobRunrDashboardWebServer;
@@ -322,7 +328,7 @@ public class JobRunrConfiguration {
         ofNullable(microMeterIntegration).ifPresent(meterRegistry -> meterRegistry.initialize(storageProvider, backgroundJobServer));
         final JobScheduler jobScheduler = new JobScheduler(storageProvider, jobDetailsGenerator, jobFilters);
         final JobRequestScheduler jobRequestScheduler = new JobRequestScheduler(storageProvider, jobFilters);
-        return new JobRunrConfigurationResult(jobScheduler, jobRequestScheduler);
+        return new JobRunrConfigurationResult(jobScheduler, jobRequestScheduler, backgroundJobServer);
     }
 
     private static JsonMapper determineJsonMapper() {
@@ -341,10 +347,12 @@ public class JobRunrConfiguration {
 
         private final JobScheduler jobScheduler;
         private final JobRequestScheduler jobRequestScheduler;
+        private final BackgroundJobServer backgroundJobServer;
 
-        public JobRunrConfigurationResult(JobScheduler jobScheduler, JobRequestScheduler jobRequestScheduler) {
+        public JobRunrConfigurationResult(JobScheduler jobScheduler, JobRequestScheduler jobRequestScheduler, BackgroundJobServer backgroundJobServer) {
             this.jobScheduler = jobScheduler;
             this.jobRequestScheduler = jobRequestScheduler;
+            this.backgroundJobServer = backgroundJobServer;
         }
 
         public JobScheduler getJobScheduler() {
@@ -354,5 +362,10 @@ public class JobRunrConfiguration {
         public JobRequestScheduler getJobRequestScheduler() {
             return jobRequestScheduler;
         }
+
+        public BackgroundJobServer getBackgroundJobServer() {
+            return backgroundJobServer;
+        }
+
     }
 }

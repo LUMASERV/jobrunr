@@ -1,3 +1,9 @@
+/*
+Edited on 24.06.2022 by JanHolger <jan@bebendorf.eu>
+Changes:
+- Added auto restart on crash
+*/
+
 package org.jobrunr.server;
 
 import org.jobrunr.server.configuration.*;
@@ -22,6 +28,7 @@ public class BackgroundJobServerConfiguration {
     Duration permanentlyDeleteDeletedJobsAfter = DEFAULT_PERMANENTLY_DELETE_JOBS_DURATION;
     BackgroundJobServerWorkerPolicy backgroundJobServerWorkerPolicy = new DefaultBackgroundJobServerWorkerPolicy();
     ConcurrentJobModificationPolicy concurrentJobModificationPolicy = new DefaultConcurrentJobModificationPolicy();
+    boolean autoRestartOnCrash = false;
 
     private BackgroundJobServerConfiguration() {
 
@@ -140,4 +147,14 @@ public class BackgroundJobServerConfiguration {
         this.concurrentJobModificationPolicy = concurrentJobModificationPolicy;
         return this;
     }
+
+    public BackgroundJobServerConfiguration andAutoRestartOnCrash() {
+        return andAutoRestartOnCrash(true);
+    }
+
+    public BackgroundJobServerConfiguration andAutoRestartOnCrash(boolean autoRestart) {
+        this.autoRestartOnCrash = autoRestart;
+        return this;
+    }
+
 }

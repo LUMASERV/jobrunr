@@ -3,7 +3,9 @@ License
 
 Copyright © 2019-2021 Ronald Dehuysser
 
-JobRunr software is an open-source software that is multi-licensed under the terms of the licenses listed in this file. Recipients may choose the terms under which they are want to use or distribute the software, when all the preconditions of a chosen license are satisfied.
+The original JobRunr software is an open-source software that is multi-licensed (see https://github.com/jobrunr/jobrunr/blob/master/License.md for more information).
+This fork is modified and distributed under the terms of GNU LGPL v3. You can use this software under the terms of GNU LGPL v3 described below.
+If you require commercial support please consider [JobRunr Pro](https://www.jobrunr.io/de/pricing/) instead.
 
 LGPL v3 License
 ---------------
@@ -13,10 +15,3 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
 Please see License-lgpl.md file for details.
-
-Commercial License
-------------------
-
-Subject to the purchase of a corresponding subscription (see https://www.jobrunr.io/en/pricing/), you may distribute
-JobRunr under the terms of commercial license, that allows you to distribute private forks and modifications. Please see
-License-standard.md and License-royaltyfree.md files for details.
