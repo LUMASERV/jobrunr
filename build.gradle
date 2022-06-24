@@ -5,6 +5,11 @@ plugins {
     id 'signing'
 }
 
+subprojects {
+    group = 'com.lumaserv'
+    version = System.getenv('BUILD_VERSION')?.replace("v", "") ?: "v1.0.0-SNAPSHOT".replace("v", "")
+}
+
 nexusPublishing {
     packageGroup = "com.lumaserv"
     repositories {
@@ -16,11 +21,6 @@ nexusPublishing {
             snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
         }
     }
-}
-
-subprojects {
-    group = 'com.lumaserv'
-    version = System.getenv('BUILD_VERSION')?.replace("v", "") ?: "v1.0.0-SNAPSHOT".replace("v", "")
 }
 
 def isNonStable = { String version ->
