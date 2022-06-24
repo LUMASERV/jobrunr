@@ -9,14 +9,13 @@ nexusPublishing {
     packageGroup = "com.lumaserv"
     repositories {
         sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            username = System.getenv('OSSRH_USERNAME')
+            password = System.getenv('OSSRH_PASSWORD')
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"))
             snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
         }
     }
 }
-
-project.ext.sonatypeUsername = System.getenv('OSSRH_USERNAME')
-project.ext.sonatypePassword = System.getenv('OSSRH_PASSWORD')
 
 subprojects {
     group = 'com.lumaserv'
