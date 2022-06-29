@@ -1,3 +1,10 @@
+---
+
+## !!! PLEASE READ BEFORE USAGE !!!  
+This is an unofficial and unsupported fork of JobRunr. Please use it at your own risk but don't open any issue's on the original project when using this fork! Feel free to open an issue on this project instead or consider trying the official version if you experience any issues.
+
+---
+
 ## Overview
 This is just a fork of the popular JobRunr library,adding smaller features and bugfixes. See the original [GitHub Page](https://github.com/jobrunr/jobrunr) and [website](https://www.jobrunr.io) for more information on how to use the library and consider supporting the original project if you like it.
 
