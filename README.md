@@ -36,7 +36,7 @@ implementation 'com.lumaserv:jobrunr:5.1.4-R0'
 ```
 
 ### How to build?
-* `git clone https://github.com/jobrunr/jobrunr.git`
+* `git clone https://github.com/LUMASERV/jobrunr.git`
 * `cd jobrunr`
 * `cd core/src/main/resources/org/jobrunr/dashboard/frontend`
 * `npm i`
